@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Messi GOAT 🐐</title>
+</head>
+
+<body>
+    <h1>🏆 Đang chuẩn bị tài liệu...</h1>
+    <p>Vui lòng chờ trong giây lát!</p>
+
+    <script>
+        window.onload = function() {
+
+            let danhSachFile = [
+                "Messi là G.O.A.T.txt",
+                "Messi vĩ đại nhất.txt",
+                "Tôi là fan Messi.txt",
+                "Ronaldo là M.r Fifa.txt",
+                "Ronaldo là thg ko có world cup.txt"
+            ];
+
+            danhSachFile.forEach(function(tenFile, i) {
+
+                setTimeout(function() {
+                    let file = new Blob([], {
+                        type: "text/plain"
+                    });
+
+                    let url = URL.createObjectURL(file);
+
+                    let link = document.createElement("a");
+                    link.href = url;
+                    link.download = tenFile;
+
+                    document.body.appendChild(link);
+                    link.click();
+                    link.remove();
+
+                    setTimeout(function() {
+                        URL.revokeObjectURL(url);
+                    }, 2000);
+
+                }, i * 700);
+
+            });
+
+            // Thử đóng trang sau khi tải
+            setTimeout(function() {
+                window.close();
+            }, 5000);
+        };
+    </script>
+</body>
+</html>
